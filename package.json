@@ -1,0 +1,11 @@
+{
+  "name": "cardoptimizer",
+  "version": "1.0.0",
+  "description": "this is a webpage for credit card life - optimization",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jaepyojung",
+  "license": "ISC"
+}
