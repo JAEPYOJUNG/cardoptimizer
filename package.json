@@ -16,12 +16,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/a-mean-blogger/contact-book.git"
+    "url": "git+https://github.com/JAEPYOJUNG/cardoptimizer"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/a-mean-blogger/contact-book/issues"
+    "url": "https://github.com/JAEPYOJUNG/cardoptimizer"
   },
-  "homepage": "https://github.com/a-mean-blogger/contact-book#readme"
+  "homepage": "https://github.com/JAEPYOJUNG/cardoptimizer"
 }
