@@ -33,7 +33,11 @@ app.use("/CreditCardIssuerList", require("./routes/CreditCardIssuerList"));
 
 
 // Port setting
-var port = 3000;
-app.listen(port, function(){
-  console.log("server on! http://localhost:"+port);
+// var port = 3000;
+// app.listen(port, function(){
+//   console.log("server on! http://localhost:"+port);
+// });
+
+app.listen(process.env.PORT || 5000, function(){
+     console.log('App Listening on port 5000');
 });
