@@ -5,7 +5,10 @@ var methodOverride = require("method-override");
 var app = express();
 
 // DB setting
-mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true });
+// mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true });
+mongoose.connect( "mongodb://jaepyo:1234@ds129146.mlab.com:29146/billing_managements" , { useMongoClient: true });
+
+
 var db = mongoose.connection;
 db.once("open", function(){
   console.log("DB connected");
