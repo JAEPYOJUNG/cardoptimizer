@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+
+    <div class="container contact contact-edit">
+      <div class="contact-menu">
+        <a class="btn btn-default" href="/CreditCardIssuerList/<%= CreditCardIssuerList._id %>">Back</a>
+      </div>
+      <h2>Edit</h2>
+      <form class="contact-form" action="/CreditCardIssuerList/<%= CreditCardIssuerList._id %>?_method=put" method="post">
+        <div class="form-group">
+          <label for="issuer">Card Issuers</label>
+          <input class="form-control" type="text" id="issuer" name="issuer" value="<%= CreditCardIssuerList.issuer %>">
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input class="form-control" type="text" id="amount" name="amount" value="<%= CreditCardIssuerList.amount %>">
+        </div>
+        <div class="form-group">
+          <label for="cost_period">cost_period</label>
+          <input class="form-control" type="text" id="cost_period" name="cost_period" value="<%= CreditCardIssuerList.cost_period %>">
+        </div>
+
+        <div class="form-group">
+            <label for="holding">holding</label>
+            <input class="form-control" type="text" id="holding" name="holding" value="<%= CreditCardIssuerList.holding %>">
+          </div>
+
+          <div class="form-group">
+              <label for="cost_period">waiting</label>
+              <input class="form-control" type="text" id="waiting" name="waiting" value="<%= CreditCardIssuerList.waiting %>">
+            </div>
+
+            <div class="form-group">
+                <label for="cost_period">comments</label>
+                <input class="form-control" type="text" id="comments" name="comments" value="<%= CreditCardIssuerList.comments %>">
+              </div>
+
+
+
+        <div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+
+        
+      </div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+
+   
+    <script>
+        var today = new Date();      
+        $(document).ready(function() {
+           $("#countx").val($("tr[name=jaepyo]").length + "개");
+        }); 
+      </script>
+     
+  </head>
+  <body>
+    <% include ../partials/nav %>
+
+
+  
+
+    <div class="container mycardlists mycardlists-index">
+      <h2>My Card List</h2>
+      <!-- <ul class="list-group"> -->
+ 
+          <div class="container contact contact-show">
+              <div class="contact-menu">
+                <a class="btn btn-default" href="/mycardlists/new">Add New</a>
+
+                <input class="form-control" type="text" id="countx" name="countx" style="width:200px"  disabled >
+
+              <div>
+
+          <table border="1">
+              <tr style="text-align: center">  
+                  <td style="width:100px">발급사</td> 
+                  <td style="width:100px">받은날</td> 
+                  <td style="width:100px">해지일</td> 
+                  <td style="width:400px">비 고</td> 
+                  
+              </tr>
+             
+
+         <% mycardlists.forEach(function(mycardlist) { %>
+          <!-- <li class="list-group-item"> -->
+            
+             <tr style="text-align: center" name="jaepyo">  
+               
+            <td style="width:100px">
+              <a href="/mycardlists/<%= mycardlist._id %>"><%= mycardlist.issuer %></a>
+
+              
+
+            </td>
+            
+          <td style="width:100px">
+             <span><%= mycardlist.received_date %></span>
+            </td>
+            <td style="width:100px">
+             <span><%= mycardlist.discard_date %></span>
+            </td style="width:100px">
+            <td style="width:100px">
+             <span><%= mycardlist.comments %></span>
+            </td>
+
+            </tr>
+            <!-- </li> -->
+        <% }) %>
+          </table>
+
+
+ 
+
+
+
+
+      <!-- </ul> -->
+    </div>
+  </body>
+</html>
+
+  

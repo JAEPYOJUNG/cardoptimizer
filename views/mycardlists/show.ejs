@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+
+    <div class="container contact contact-show">
+      <div class="contact-menu">
+        <a class="btn btn-default" href="/mycardlists">Back</a>
+        <a class="btn btn-default" href="/mycardlists/<%= mycardlist._id %>/edit">Edit</a>
+        <form action="/mycardlists/<%= mycardlist._id %>?_method=delete" method="post">
+          <a class="btn btn-default" href="#" onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;">Delete</a>
+        </form>
+      <div>
+      <h2>Show</h2>
+      <h3><%= mycardlist.issuer%></h3>
+      <div>
+            <!-- <label>person_id</label><span><%= mycardlist.person_id %></span></div> -->
+
+            <div> <label>발급사</label><span><%= mycardlist.issuer %></span></div>
+
+            <div> <label>받은날</label><span><%= mycardlist.received_date %></span></div>
+            <div> <label>해지일</label><span><%= mycardlist.discard_date %></span></div>
+            <div> <label>비 고</label><span><%= mycardlist.comments %></span></div>
+
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- 
+person_id
+issuer
+received_date
+discard_date
+comments -->

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+
+  </head>
+  <body>
+    <% include ../partials/nav %>
+
+
+
+
+    <div class="container contact contact-index">
+      <h2>Card Issuer List</h2>
+
+      <div>
+        <a class="btn btn-default" href="/CreditCardIssuerList">Card List</a>
+        <a class="btn btn-default" href="/CreditCardIssuerList/new">Create New Card Issuer</a>
+      </div>
+
+
+
+
+      <table border="1">
+      <!-- <ul class="list-group"> -->
+          <tr style="text-align: center">
+          <td style="width:100px">발급사</td>
+          <td style="width:100px">금액    </td>
+          <td style="width:100px">사용기간    </td>
+          <td style="width:100px">유지기간    </td>
+          <td style="width:100px">해지/대기   </td>
+          <td style="width:200px">비고    </td>
+          </tr>
+        <% CreditCardIssuerList.forEach(function(CreditCardIssuerList) { %>
+          <!-- <li class="list-group-item"> -->
+              <tr style="text-align: center">
+              <td>
+                    <a href="/CreditCardIssuerList/<%= CreditCardIssuerList._id %>"><%= CreditCardIssuerList.issuer %></a>
+              </td>
+              <td style="width:100px"><%= CreditCardIssuerList.amount %> 만원  </td>
+              <td style="width:100px"><%= CreditCardIssuerList.cost_period %>  </td>
+              <td style="width:100px"><%= CreditCardIssuerList.holding %>  </td>
+              <td style="width:100px"><%= CreditCardIssuerList.waiting %>  </td>
+              <td style="width:200px"><%= CreditCardIssuerList.comments %>  </td>
+
+            </tr>
+          <!-- </li> -->
+        <% }) %>
+      <!-- </ul> -->
+    </table>
+
+    </div>
+
+
+
+
+
+  </body>
+</html>

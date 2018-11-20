@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+
+    <script>
+      var today = new Date();
+      $(document).ready(function() {
+         $("#CreationDate").val(today.getDate());
+      });
+    </script>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+
+    <div class="container contact contact-new">
+      <div class="contact-menu">
+        <a class="btn btn-default" href="/CreditCardIssuerList">Back</a>
+      </div>
+      <h2>New</h2>
+      <form class="contact-form" action="/CreditCardIssuerList" method="post">
+        <div class="form-group">
+          <label for="issuer">Issuer</label>
+          <input class="form-control" type="text" id="issuer" name="issuer" value="">
+
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input class="form-control" type="text" id="amount" name="amount" value="">
+        </div>
+        <div class="form-group">
+          <label for="period">Period</label>
+          <input class="form-control" type="text" id="period" name="period" value="">
+
+          <div class="form-group">
+              <label for="holding">holding</label>
+              <input class="form-control" type="text" id="holding" name="holding" value="">
+            </div>
+
+            <div class="form-group">
+                <label for="cost_period">waiting</label>
+                <input class="form-control" type="text" id="waiting" name="waiting" value="">
+              </div>
+
+              <div class="form-group">
+                  <label for="cost_period">comments</label>
+                  <input class="form-control" type="text" id="comments" name="comments" value="">
+                </div></div>
+
+
+                <div class="form-group">
+                    <label for="cost_period">Creation Date</label>
+                    <input class="form-control" type="text" id="CreationDate" name="CreationDate" value="">
+                  </div></div>
+
+        <div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

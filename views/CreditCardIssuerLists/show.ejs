@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <% include ../partials/nav %>
+
+    <div class="container contact contact-show">
+      <div class="contact-menu">
+        <a class="btn btn-default" href="/CreditCardIssuerList">Back</a>
+        <a class="btn btn-default" href="/CreditCardIssuerList/<%= CreditCardIssuerList._id %>/edit">Edit</a>
+        <form action="/CreditCardIssuerList/<%= CreditCardIssuerList._id %>?_method=delete" method="post">
+          <a class="btn btn-default" href="#" onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;">Delete</a>
+        </form>
+      <div>
+      <h2>Show</h2>
+      <h3><%= CreditCardIssuerList.issuer%></h3>
+      <div>
+        <label>Amount</label><span><%= CreditCardIssuerList.amount %></span>
+      </div>
+      <div>
+        <label>cost_period</label><span><%= CreditCardIssuerList.cost_period %></span>
+      </div>
+      <div>
+          <label>holding</label><span><%= CreditCardIssuerList.holding %></span>
+        </div>
+
+        <div>
+            <label>waiting</label><span><%= CreditCardIssuerList.waiting %></span>
+          </div>
+
+          <div>
+              <label>comments</label><span><%= CreditCardIssuerList.comments %></span>
+          </div>
+
+    </div>
+  </body>
+</html>

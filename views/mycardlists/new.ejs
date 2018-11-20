@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+ 
+
+      <script type = "text/javascript"> 
+
+      $(document).ready(function(){   
+        $('#issuer').mouseover(function(){
+               $('#comments').val( "MOUSE mouseover!" );
+        });
+        $('#issuer').mouseleave(function(){
+              //  $('#comments').val( "MOUSE mouseleave!" );
+
+                var vn_date_today = new Date();
+                var vn_year = vn_date_today.getYear();
+                var vn_month = vn_date_today.getMonth();
+                var vn_day = vn_date_today.getDate();
+
+                vn_date_select = new Date(vn_year, vn_month, vn_day) ;
+
+               $('#comments').val( vn_date_select );
+          });
+
+  
+
+        $('#issuer').change(function(){     
+            var x = this.value;
+          submit(x);
+          
+          //JSON으로 CreditCardIssuerList를 읽어다가 
+          //CASE 같은거로 X 랑 ISSUER 같은거의 COMMENT를 
+          //X 에 다시 넣고 쏴주면될거아녀... 
+          //아오 근데 못하겟다   
+
+          //alert(     this.value   );  //왜 안뜸?
+          // JSON.parse(CreditCardIssuerList);   // 이건 문자로 바꿔주는거고 ?
+          // JSON.stringify(CreditCardIssuerList);   //다시 오브젝트?로 바꿔주는거고 ?
+
+          // var arr = JSON.parse(CreditCardIssuerList);
+          // if(arr.length > 0 ){
+          //   for ( var i=0 ; i <= arr.length ; i++)
+          //   {
+          //     if(arr.issuer == x)
+          //     { x = arr.comments ;}
+          //   }
+          // }
+          // alert (arr.comments);
+           
+             $('#commentx').val( x );  //여기에 CreditCardIssuerList.issuer 골라진 CreditCardIssuerList.comments 를 쏴줘야되는디..
+        });
+      }); 
+     </script>
+
+  </head>
+  <body>
+    <% include ../partials/nav %>
+
+    <div class="container contact contact-new">
+      <div class="contact-menu">
+        <a class="btn btn-default" href="/mycardlists">Back</a>
+      </div>
+      <h2>New</h2>
+      <form class="contact-form" action="/mycardlists" method="post">
+          <div class="form-group">
+          <label for="issuer">발급사</label>
+          <select class="form-control"  id="issuer" name="issuer" >
+            <% CreditCardIssuerList.forEach(function(CreditCardIssuerList) { %>
+                  <option value = "<%= CreditCardIssuerList.issuer %>"  > <%= CreditCardIssuerList.issuer %>  </option>             
+            <% }) %>
+          </select>
+          </div>
+
+            
+            
+            <div class="form-group">
+                <label for="commentx">카드설명</label>
+                <input class="form-control" type="text" id="commentx" name="commentx"  disabled >
+                <!-- 이게 될리가 없지 , 위에 발급사 골라질때 뭔가 이벤트를 걸어야할듯  -->
+            </div>
+
+          <div class="form-group">
+          <label for="received_date">받은날</label>
+          <input class="form-control" type="date"  min = '2016-01-01' id="received_date" name="received_date" value="">
+          </div>
+
+          <div class="form-group">
+          <label for="discard_date">해지일</label>
+          <input class="form-control" type="date" min = '2016-01-01' id="discard_date" name="discard_date" value="">
+          </div>
+
+          <div class="form-group">
+          <label for="email">비 고</label>
+          <input class="form-control" type="text" id="comments" name="comments" value="">
+          </div>
+
+        <div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+
+
+
+
+      </form>
+    </div>
+  </body>
+</html>
