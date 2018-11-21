@@ -2,11 +2,11 @@
 <html>
   <head>
     <% include ../partials/head %>
- 
 
-      <script type = "text/javascript"> 
 
-      $(document).ready(function(){   
+      <script type = "text/javascript">
+
+      $(document).ready(function(){
         $('#issuer').mouseover(function(){
                $('#comments').val( "MOUSE mouseover!" );
         });
@@ -23,16 +23,16 @@
                $('#comments').val( vn_date_select );
           });
 
-  
 
-        $('#issuer').change(function(){     
+
+        $('#issuer').change(function(){
             var x = this.value;
           submit(x);
-          
-          //JSON으로 CreditCardIssuerList를 읽어다가 
-          //CASE 같은거로 X 랑 ISSUER 같은거의 COMMENT를 
-          //X 에 다시 넣고 쏴주면될거아녀... 
-          //아오 근데 못하겟다   
+
+          //JSON으로 CreditCardIssuerList를 읽어다가
+          //CASE 같은거로 X 랑 ISSUER 같은거의 COMMENT를
+          //X 에 다시 넣고 쏴주면될거아녀...
+          //아오 근데 못하겟다
 
           //alert(     this.value   );  //왜 안뜸?
           // JSON.parse(CreditCardIssuerList);   // 이건 문자로 바꿔주는거고 ?
@@ -47,10 +47,10 @@
           //   }
           // }
           // alert (arr.comments);
-           
+
              $('#commentx').val( x );  //여기에 CreditCardIssuerList.issuer 골라진 CreditCardIssuerList.comments 를 쏴줘야되는디..
         });
-      }); 
+      });
      </script>
 
   </head>
@@ -62,18 +62,25 @@
         <a class="btn btn-default" href="/mycardlists">Back</a>
       </div>
       <h2>New</h2>
+
+
+
+
       <form class="contact-form" action="/mycardlists" method="post">
           <div class="form-group">
           <label for="issuer">발급사</label>
           <select class="form-control"  id="issuer" name="issuer" >
             <% CreditCardIssuerList.forEach(function(CreditCardIssuerList) { %>
-                  <option value = "<%= CreditCardIssuerList.issuer %>"  > <%= CreditCardIssuerList.issuer %>  </option>             
+                  <option value = "<%= CreditCardIssuerList.issuer %>"  > <%= CreditCardIssuerList.issuer %>  </option>
             <% }) %>
           </select>
           </div>
 
-            
-            
+          <div class="form-group">
+          <label for="person_name">소유자</label>
+          <input class="form-control" type="text"  id="person_name" name="person_name" value="">
+          </div>
+
             <div class="form-group">
                 <label for="commentx">카드설명</label>
                 <input class="form-control" type="text" id="commentx" name="commentx"  disabled >

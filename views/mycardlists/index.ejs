@@ -31,6 +31,7 @@
 
           <table border="1">
               <tr style="text-align: center">
+                <td style="width:100px">소유자</td>
                   <td style="width:100px">발급사</td>
                   <td style="width:100px">받은날</td>
                   <td style="width:100px">해지일</td>
@@ -44,19 +45,22 @@
 
              <tr style="text-align: center" name="jaepyo">
 
+               <td style="width:100px">
+                <span><%= mycardlist.person_name %></span>
+               </td>
+
             <td style="width:100px">
               <a href="/mycardlists/<%= mycardlist._id %>"><%= mycardlist.issuer %></a>
-
-
-
             </td>
 
-          <td style="width:100px">
+            <td style="width:100px">
              <span><%= mycardlist.received_date %></span>
             </td>
+
             <td style="width:100px">
              <span><%= mycardlist.discard_date %></span>
             </td style="width:100px">
+
             <td style="width:100px">
              <span><%= mycardlist.comments %></span>
             </td>
