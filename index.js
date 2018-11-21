@@ -29,6 +29,7 @@ app.use("/", require("./routes/home"));
 app.use("/contacts", require("./routes/contacts"));
 app.use("/mycardlists", require("./routes/mycardlists"));
 app.use("/CreditCardIssuerList", require("./routes/CreditCardIssuerList"));
+app.use("/posts", require("./routes/posts"));
 
 
 

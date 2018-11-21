@@ -3,6 +3,13 @@
   <head>
     <% include ../partials/head %>
 
+    <script>
+        var today = new Date();
+        $(document).ready(function() {
+           $("#countx").val($("tr[name=cardissuer]").length + "개");
+        });
+      </script>
+
   </head>
   <body>
     <% include ../partials/nav %>
@@ -14,8 +21,10 @@
       <h2>Card Issuer List</h2>
 
       <div>
-        <a class="btn btn-default" href="/CreditCardIssuerList">Card List</a>
+        <!-- <a class="btn btn-default" href="/CreditCardIssuerList">Card List</a> -->
         <a class="btn btn-default" href="/CreditCardIssuerList/new">Create New Card Issuer</a>
+        <input class="form-control" type="text" id="countx" name="countx" style="width:200px"  disabled >
+
       </div>
 
 
@@ -33,7 +42,7 @@
           </tr>
         <% CreditCardIssuerList.forEach(function(CreditCardIssuerList) { %>
           <!-- <li class="list-group-item"> -->
-              <tr style="text-align: center">
+              <tr style="text-align: center"  name="cardissuer">
               <td>
                     <a href="/CreditCardIssuerList/<%= CreditCardIssuerList._id %>"><%= CreditCardIssuerList.issuer %></a>
               </td>
