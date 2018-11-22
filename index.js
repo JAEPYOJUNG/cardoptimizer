@@ -16,6 +16,18 @@ db.on("error", function(err){
   console.log("DB ERROR : ", err);
 });
 
+
+// Middlewares
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'content-type');
+  next();
+});
+
+
 // Other settings
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+"/public"));
@@ -31,12 +43,10 @@ app.use("/CreditCardIssuerList", require("./routes/CreditCardIssuerList"));
 app.use("/posts", require("./routes/posts"));
 
 
+// API
+app.use('/api/mycardlists', require('./api/mycardlists'));
 
-// Port setting
-// var port = 3000;
-// app.listen(port, function(){
-//   console.log("server on! http://localhost:"+port);
-// });
+
 
 app.listen(process.env.PORT || 5000, function(){
      console.log('App Listening on port 5000');
