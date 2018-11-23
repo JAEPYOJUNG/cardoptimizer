@@ -47,6 +47,9 @@ app.use("/mycardlists", require("./routes/mycardlists"));
 app.use("/CreditCardIssuerList", require("./routes/CreditCardIssuerList"));
 app.use("/posts", require("./routes/posts"));
 
+//tmp login
+app.use("/welcome_after_login", require("./routes/home"));
+
 
 // API
 app.use('/api/mycardlists', require('./api/mycardlists'));

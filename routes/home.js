@@ -20,6 +20,11 @@ router.get("/board", function(req, res){
   res.render("board/home/welcome");
 });
 
+
+router.get("/welcome_after_login", function(req, res){
+  res.render("board/home/welcome_after_login");
+});
+
 router.get("/board/about", function(req, res){
   res.render("board/home/about");
 });

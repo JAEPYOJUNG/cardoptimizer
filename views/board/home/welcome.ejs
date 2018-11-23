@@ -11,26 +11,21 @@
 <script> Kakao.init('f1643921732f418af4cbdf08e8f6fde4'); </script>
   </head>
   <body>
-    <% include ../../partials/nav %>
-
+    <!-- <% include ../../partials/nav %> -->
     <div class="container home home-welcome">
       <div class="jumbotron">
         <h1>공지사항</h1>
         <P>이 사이트는 신용카드 사용의 도움을 주기 위해 만들어졌습니다.</p>
 
-        <p id="userinfo"></p>
-
         <a id="kakao-login-btn"></a>
-
         <p id="uname"></p>
         <img src="" id="uphoto"/>
 
-
+        <a href  ="" id="after_login_link"/>
 
       </div>
+      <!-- <p id="userinfo"></p> -->
     </div>
-
-
 
     <script type='text/javascript'>
          // 카카오 로그인 버튼을 생성합니다.
@@ -48,7 +43,8 @@
                 var parsed_obj = JSON.parse(response_str);
                 document.getElementById("uname").innerHTML = parsed_obj.properties.nickname;
                 document.getElementById("uphoto").src = parsed_obj.properties.thumbnail_image;
-
+                document.getElementById("after_login_link").href = "./welcome_after_login"
+                document.getElementById("after_login_link").innerHTML = "Please, click this link"
 
               },
               fail: function(error) {
