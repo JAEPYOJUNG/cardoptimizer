@@ -27,6 +27,11 @@ app.use(function (req, res, next) {
   next();
 });
 
+//kakao login settings
+// app.use((req, res) => {
+//   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
+// });
+
 
 // Other settings
 app.set("view engine", "ejs");
@@ -48,6 +53,6 @@ app.use('/api/mycardlists', require('./api/mycardlists'));
 
 
 
-app.listen(process.env.PORT || 5000, function(){
-     console.log('App Listening on port 5000');
+app.listen(process.env.PORT || 3000, function(){
+     console.log('App Listening on port 3000');
 });
