@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>객체</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <script>
+        var db = [{
+                "name": "장정훈",
+                "gender": "남",
+                "age": 27,
+                "job": false
+            }];
+    </script>
+    <script>
+        window.addEventListener("load", function() {
+            var tagContent = "";
+            var tablebody = document.querySelector("#tablebody");
+            //var tagContent = "";
+            for (var i = 0; i < db.length; i++) {
+                tagContent += "<tr><td>" + db[i].name + "</td><td>" + db[i].gender + "</td><td>" + db[i].age + "</td><td>" + db[i].job + "</td></tr>"
+            }
+
+            tablebody.innerHTML = tagContent;
+
+
+            //gender select change
+            var gender = document.querySelector("#gender");
+            gender.addEventListener("change", function(){
+              tagContent = "";
+              for (var i = 0; i < db.length; i++) {
+                if(db[i].gender == gender.value || gender.value  == "" ){
+                  tagContent += "<tr><td>" + db[i].name + "</td><td>" + db[i].gender + "</td><td>" + db[i].age + "</td><td>" + db[i].job + "</td></tr>"
+
+                }
+              }
+              // var tablebody = document.querySelector("#tablebody");
+
+              tablebody.innerHTML = tagContent;
+
+            });
+        });
+    </script>
+
+</head>
+
+<body class="container">
+    <h1>학생 목록</h1>
+    <div class="form-group col-xs-2">
+        <label for="sel1">필터</label>
+        <select class="form-control" id="gender">
+          <option value="">:::성별선택:::</option>
+          <option value="남">남</option>
+          <option value="여">여</option>
+        </select>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>GENDER</th>
+                <th>AGE</th>
+                <th>JOB</th>
+            </tr>
+        </thead>
+        <tbody id="tablebody">
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>

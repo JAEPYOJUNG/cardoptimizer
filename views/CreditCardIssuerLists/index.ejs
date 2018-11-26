@@ -7,7 +7,40 @@
         var today = new Date();
         $(document).ready(function() {
            $("#countx").val($("tr[name=cardissuer]").length + "개");
+
+
+           //정렬
+           $('th').each(function (column) {
+             $(this).click(function() {
+                     if($(this).is('.descend')) {
+                         $(this).removeClass('descend');
+                         $(this).addClass('ascend');
+                         sortdir=1;
+                     } else {
+                        $(this).addClass('descend');
+                        $(this).removeClass('acend');
+                        sortdir=-11;
+                     }
+                     $(this).siblings().removeClass('ascend');
+                     $(this).siblings().removeClass('descend');
+
+                    var rec = $('table').find('tbody>tr').get();
+                    rec.sort(function (a, b) {
+                         var val1 = $(a).children('td').eq(column).text().toUpperCase();
+                         var val2 = $(b).children('td').eq(column).text().toUpperCase();
+                         return (val1 < val2)?-sortdir:(val1>val2)?sortdir:0;
+                    });
+                    $.each(rec, function(index, row) {
+                         $('tbody').append(row);
+                      });
+                });
+            });
+
         });
+
+
+
+
       </script>
 
   </head>
@@ -30,19 +63,22 @@
 
 
 
-      <table border="1">
-      <!-- <ul class="list-group"> -->
-          <tr style="text-align: center">
-          <td style="width:100px">발급사</td>
-          <td style="width:100px">금액    </td>
-          <td style="width:100px">사용기간    </td>
-          <td style="width:100px">유지기간    </td>
-          <td style="width:100px">해지/대기   </td>
-          <td style="width:200px">비고    </td>
-          </tr>
+      <table border="1"  >
+        <thead>
+
+          <th style="text-align: center" style="width:100px">발급사</th>
+          <th style="text-align: center" style="width:100px">금액  </th>
+          <th style="text-align: center" style="width:100px" >사용기간   </th>
+          <th style="text-align: center" style="width:100px">유지기간    </th>
+          <th style="text-align: center" style="width:100px">해지/대기   </th>
+          <th style="text-align: center" style="width:200px">비고    </th>
+
+        </thead>
+
+        <tbody id="tablebody">
+
         <% CreditCardIssuerList.forEach(function(CreditCardIssuerList) { %>
-          <!-- <li class="list-group-item"> -->
-              <tr style="text-align: center"  name="cardissuer">
+               <tr style="text-align: center" style="width:100px"  name="cardissuer">
               <td>
                     <a href="/CreditCardIssuerList/<%= CreditCardIssuerList._id %>"><%= CreditCardIssuerList.issuer %></a>
               </td>
@@ -53,9 +89,9 @@
               <td style="width:200px"><%= CreditCardIssuerList.comments %>  </td>
 
             </tr>
-          <!-- </li> -->
         <% }) %>
-      <!-- </ul> -->
+      </tbody>
+
     </table>
 
     </div>

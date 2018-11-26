@@ -18,3 +18,7 @@
 
 render is for views
 redirect is for routes?
+
+
+JS no.1
+html , css

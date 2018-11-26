@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partials/head %>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+        <script>
+               window.addEventListener("load", function() {
+
+
+                   var tagContent = "";
+                   var tablebody = document.querySelector("#tablebody");
+                   //var tagContent = "";
+                   for (var i = 0; i < mycardlist.length; i++) {
+                       tagContent += "<tr><td>" + mycardlist[i].person_name + "</td><td>" + mycardlist[i].issuer + "</td><td>" + mycardlist[i].received_date + "</td><td>" + mycardlist[i].discard_date + "</td></tr>"
+                   }
+
+                   tablebody.innerHTML = tagContent;
+
+                   //gender select change
+                   var gender = document.querySelector("#gender");
+                   gender.addEventListener("change", function(){
+                     tagContent = "";
+                     for (var i = 0; i < mycardlist.length; i++) {
+                       if(mycardlist[i].person_name == names.value || names.value == ""){
+                         tagContent += "<tr><td>" + mycardlist[i].person_name + "</td><td>" + mycardlist[i].issuer + "</td><td>" + mycardlist[i].received_date + "</td><td>" + mycardlist[i].discard_date + "</td></tr>"
+
+                       }
+                     }
+                     //var tablebody = document.querySelector("#tablebody");
+
+                     tablebody.innerHTML = tagContent;
+
+                   });
+               });
+           </script>
+
+
+  </head>
+
+
+
+    <body class="container">
+
+    <% include ../partials/nav %>
+
+        <h1> 목록</h1>
+        <div class="form-group col-xs-2">
+            <label for="sel1">필터</label>
+            <select class="form-control" id="names">
+              <option value="">:::사용자선택:::</option>
+              <option value="정재표">정재표</option>
+              <option value="띵오아">띵오아</option>
+            </select>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>person_name</th>
+                    <th>issuer</th>
+                    <th>received_date</th>
+                    <th>discard_date</th>
+                </tr>
+            </thead>
+            <tbody id="tablebody">
+
+            </tbody>
+        </table>
+
+
+
+  </body>
+</html>

@@ -11,10 +11,6 @@ router.get("/", function(req, res){
 });
 
 
-router.get("/login", function(req, res){
-   res.render("login/kakao_login");
-  });
-
 // Home
 router.get("/board", function(req, res){
   res.render("board/home/welcome");
@@ -30,6 +26,17 @@ router.get("/board/about", function(req, res){
 });
 
 
+router.get("/sample_page", function(req, res){
+  res.render("samplejs");
+});
+
+router.get("/sample_page1", function(req, res){
+  res.render("samplejs1");
+});
+
+router.get("/sample_page2", function(req, res){
+  res.render("samplejs2");
+});
 
 
 module.exports = router;

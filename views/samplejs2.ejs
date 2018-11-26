@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<title>Untitled Document</title>
+<script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+$(function() {
+ $('#navi li div').css("display","none");
+ $('#navi li').hover(function() {
+  $('div', this).slideDown(200);
+ }, function() {
+  $('div', this).slideUp(100);
+ });
+});
+</script>
+<style type="text/css">
+#navi {position:relative}
+#navi li { float:left; margin-right:30px; cursor:pointer; overflow:hidden}
+#navi li div { position:absolute; left:0; width:800px; height:150px; z-index:10; border:2px solid #333333; background:#ffffff}
+</style>
+</head>
+<body>
+<div id="navi">
+<ul>
+<li>무엇을 할까
+    <div id="sub1">
+ <ul>
+    <li>테마여행</li>
+    <li>추천! 가볼만한곳</li>
+    <li>테마여행</li>
+    <li>추천! 가볼만한곳</li>
+    </ul>
+    </div>
+</li>
+<li>어디로 갈까
+    <div id="sub2">
+ <ul>
+    <li>테마여행222</li>
+    <li>추천! 222</li>
+    <li>테마222</li>
+    <li>추천!222</li>
+    </ul>
+    </div>
+</li>
+<li>무엇을 먹을까
+    <div id="sub3">
+ <ul>
+    <li>테마여행333</li>
+    <li>추천! 가볼만한곳333</li>
+    <li>테마여행333</li>
+    <li>추천! 가볼만한곳333</li>
+    </ul>
+    </div>
+</li>
+</ul>
+</div>
+</body>
+</html>

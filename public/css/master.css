@@ -1,3 +1,8 @@
+.ascend:after{content:"▲";display:inline-block}
+.descend:after{content:"▼";display:inline-block}
+
+
+
 /* global style */
 form label{
   padding: 3px;
