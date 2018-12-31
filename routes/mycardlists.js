@@ -5,23 +5,13 @@ var CreditCardIssuerList  = require("../models/CreditCardIssuerList");
 
 // Index
 router.get("/", function(req, res){
-  mycardlist.find({}, function(err, mycardlist){
+mycardlist.find({}, function(err, mycardlist){
     if(err) return res.json(err);
-
-// mycardlist.distinct("person_name") 어떻게 쓰믁징..
-    res.render("./mycardlists/index", {mycardlists:mycardlist});
-
-
+    res.render("./mycardlists/index", {mycardlists:mycardlist });
   });
 });
 
-// // Index
-// router.get("/", function(req, res){
-//   mycardlist.find({}, function(err, mycardlist){
-//     if(err) return res.json(err);
-//     res.render("./mycardlists/index", {mycardlists:mycardlist});
-//   });
-// });
+
 
 // New
 router.get("/new", function(req, res){

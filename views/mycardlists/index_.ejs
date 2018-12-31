@@ -27,8 +27,8 @@
                    tablebody.innerHTML = tagContent;
 
                    //gender select change
-                   var gender = document.querySelector("#gender");
-                   gender.addEventListener("change", function(){
+                   var names = document.querySelector("#names");
+                   names.addEventListener("change", function(){
                      tagContent = "";
                      for (var i = 0; i < mycardlist.length; i++) {
                        if(mycardlist[i].person_name == names.value || names.value == ""){

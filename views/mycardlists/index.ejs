@@ -3,12 +3,9 @@
   <head>
     <% include ../partials/head %>
 
-
     <script>
-        var today = new Date();
         $(document).ready(function() {
            $("#countx").val($("tr[name=jaepyo]").length + "개");
-
 
 
         //정렬
@@ -38,15 +35,41 @@
 		         });
 		     });
 
-
-
         });
       </script>
 
 
 
+<script>
+    $.ajax({
+    	type : "GET",
+    	url : "/distinctName",
+    	dataType : "JSON",
+    	success : function(data){
+	    	console.log(data);
+	    	console.log(data.data);
+	    	console.log(data.data.length);
+	    	console.log(data.data["0"]);
+	    	console.log("data.data['0'].person_name : "+data.data["0"].person_name);
+	    	  $('#asNo').empty();
+	    	  //select의 id값, select 비워주기
+	    	for(var i=0; i<data.data.length; i++){
+	    		//data.data.length 길이만큼 반복문 실행
+	    		console.log("i : "+i);
+	    		console.log(data.data[i].asNo);
+	    		$('<option value="'+data.data[i].person_name+'">'+data.data[i].person_name+'</option>').appendTo('#names');
+	    		//반복문 길이만큼 asNo id를 가진 select태그 내에 option태그 생성해서 넣어주기
+          // ??? 이것이 아닌딩...ㅠㅠ.
+	    	}
+    	}
+    });
+</script>
+
+
+
   </head>
-  <body onload="init();">
+  <body>
+
     <% include ../partials/nav %>
 
     <div class="container mycardlists mycardlists-index">
@@ -56,53 +79,45 @@
           <div class="container contact contact-show">
               <div class="contact-menu">
                 <a class="btn btn-default" href="/mycardlists/new">Add New</a>
+                <a class="btn btn-default" id = "pushbutton">Push</a>
                 <input class="form-control" type="text" id="countx" name="countx" style="width:200px"  disabled >
-              <div>
 
-                <h1> 목록</h1>
                 <div class="form-group col-xs-2">
                     <label for="sel1">필터</label>
-                    <select class="form-control" id="name">
-                      <% mycardlists.forEach(function(mycardlist) { %>
-
-                      <option value = "<%= mycardlist.person_name %> "><%= mycardlist.person_name %></option>
-                        <% }) %>
+                    <select class="form-control" id="names">
+                      <option value="">:::사용자선택:::</option>
+                      <option value="정재표">정재표</option>
+                      <option value="띵오아">띵오아</option>
                     </select>
                 </div>
+              <div>
+
+
+
 
           <table border="0" class="table table-striped">
             <thead>
-              <!-- <tr style="text-align: center"> -->
                   <th style="text-align: center" style="width:100px">소유자</th>
                   <th style="text-align: center" style="width:100px">발급사</th>
                   <th style="text-align: center" style="width:100px">받은날</th>
                   <th style="text-align: center" style="width:100px">해지일</th>
                   <th  style="width:400px">비 고</th>
-
-              <!-- </tr> -->
             </thead>
-
 
 
         <tbody id="tablebody">
          <% mycardlists.forEach(function(mycardlist) { %>
 
-             <tr style="text-align: center" name="jaepyo">
+            <tr style="text-align: center" name="jaepyo">
 
-               <td style="width:100px">
-                <span><%= mycardlist.person_name %></span>
-               </td>
-
+            <td style="width:100px"><span><%= mycardlist.person_name %></span></td>
             <td style="width:100px"><a href="/mycardlists/<%= mycardlist._id %>"><%= mycardlist.issuer %></a></td>
-
             <td style="width:100px"><span><%= mycardlist.received_date %></span></td>
-
             <td style="width:100px"><span><%= mycardlist.discard_date %></span> </td style="width:100px">
-
             <td style="width:100px"><span><%= mycardlist.comments %></span></td>
 
             </tr>
-         <% }) %>
+            <% }) %>
 </tbody>
 
           </table>

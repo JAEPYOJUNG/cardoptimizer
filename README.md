@@ -22,3 +22,31 @@ redirect is for routes?
 
 JS no.1
 html , css
+
+
+
+An HTML table is defined with the <table> tag.
+
+Each table row is defined with the <tr> tag.
+A table header is defined with the <th> tag.
+By default, table headings are bold and centered.
+A table data/cell is defined with the <td> tag.
+Tag	Description
+<table>	Defines a table
+<th>	Defines a header cell in a table
+<tr>	Defines a row in a table
+<td>	Defines a cell in a table
+<caption>	Defines a table caption
+<colgroup>	Specifies a group of one or more columns in a table for formatting
+<col>	Specifies column properties for each column within a <colgroup> element
+<thead>	Groups the header content in a table
+<tbody>	Groups the body content in a table
+<tfoot>	Groups the footer content in a table
+
+
+
+JavaScript can "display" data in different ways:
+Writing into an HTML element, using innerHTML.
+Writing into the HTML output using document.write().
+Writing into an alert box, using window.alert().
+Writing into the browser console, using console.log()
